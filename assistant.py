@@ -51,6 +51,28 @@ class MedicalReportAssistant:
         )
         return response.data[0].embedding
     
+    def retrieveSummary(self):
+
+        if not self.texts:
+            return "The PDF has not been processed yet."
+
+        full_text = ""
+
+        for i in self.texts:
+            full_text += i
+
+        prompt = f"""You are a medical report assistant. Generate an extremely short overview of the medical report:
+        {full_text}
+        """
+        
+        response = self.client.chat.completions.create(
+            model="gpt-4-turbo-preview",
+            messages=[{"role": "user", "content": prompt}]
+        )
+        
+        return response.choices[0].message.content
+
+
     def processDocument(self, pdf_file):
         text = self.extractPDF(pdf_file)
         self.texts = self.chunkWords(text)

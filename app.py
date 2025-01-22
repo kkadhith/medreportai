@@ -16,7 +16,12 @@ def main():
             num_chunks = st.session_state.assistant.processDocument(inputFile)
             st.session_state.document_processed = True
 
+
     if st.session_state.document_processed:
+        if 'summary' not in st.session_state:
+            st.session_state.summary = st.session_state.assistant.retrieveSummary()
+
+        st.write("Summary: \n", st.session_state.summary)
         userQuery = st.text_input("Query the medical report:")
         if userQuery:
             with st.spinner("Looking through your report..."):
