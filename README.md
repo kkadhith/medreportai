@@ -9,3 +9,4 @@ Assuming you have Python installed, install the dependencies from `requirements.
 
 ## Demo
 Below, you can see a demo to show what MedReport is capable of. Currently, it provides a summary of your PDF and lets you query for more info. The sample medical report can be found in the root directory of this repo, and it is provided [this website.](https://lab.mlaw.gov.sg/files/Sample-filled-in-MR.pdf)
+![demo](https://github.com/user-attachments/assets/ee408d14-d730-4887-96e4-78920ceb0787)
